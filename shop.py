@@ -32,4 +32,18 @@ class Order:
     def pay(self):
         total = self.total_price()
         return self.customer.add_points(total)
-    
+
+c1 = Customer("피카츄", "vip")
+c2 = Customer("꼬북이", "basic")
+order1 = Order(1, c1, [("몬스터볼", 1000), ("상처약", 500)])
+order2 = Order(2, c2, [("하이퍼볼", 1500), ("기술머신", 2000)])
+order3 = Order(3, c1, [("마스터볼", 10000), ("고급상처약", 1000)])
+order3.add_item("포켓몬카드", 700)
+print(f"주문 1 총액: {order1.total_price()}")
+print(f"주문 2 총액: {order2.total_price()}")
+print(f"주문 3 총액: {order3.total_price()}")
+order1.pay()
+order2.pay()
+order3.pay()
+print(c1.summary())
+print(c2.summary())
